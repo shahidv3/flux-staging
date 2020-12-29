@@ -19,7 +19,7 @@ spec:
         app: nginx
     spec:
       containers:
-      - image: nginx
+      - image: nginx:1.7.8
         name: nginx
         resources: {}
 status: {}
