@@ -1,6 +1,9 @@
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
+metadata:
+  name: myappnew
+  namespace: flux-system
 spec:
   chart:
     spec:
@@ -16,4 +19,4 @@ spec:
       pullPolicy: Always
       repository: nginx
       tag: 1.7.9
-    replicaCount: 2
+    replicaCount: 1
