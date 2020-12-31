@@ -1,4 +1,23 @@
-image:
-  repository: nginx
-  pullPolicy: Always
-  tag: "1.7.9"
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: myappnew
+  namespace: flux-system
+spec:
+  chart:
+    spec:
+      chart: helm
+      sourceRef:
+        kind: GitRepository
+        name: myappnew
+      version: '*'
+  interval: 1m0s
+  targetNamespace: staging
+  values:
+    image:
+      pullPolicy: Always
+      repository: nginx
+      tag: 1.7.9
+    replicaCount: 1
+
